@@ -16,9 +16,14 @@ export interface S3Params {
   Key        : string;
   Body       : Buffer;
   ContentType: 'image'
+  ACL?       : 'public-read' 
 }
 
 export interface S3ParamsGetFile {
   Bucket: string;
   Key   : string;
+}
+
+export interface DynamoConfig extends AWSConfig {
+  apiVersion: string;
 }

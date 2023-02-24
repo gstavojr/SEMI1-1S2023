@@ -1,6 +1,6 @@
 import { Handler } from 'express';
 import aws from 'aws-sdk';
-import { config as configAWS } from '../config/aws.config'
+import { configS3 as configAWSS3 } from '../config/aws.config'
 import { S3Params, S3ParamsGetFile } from '../interfaces/aws.interface';
 
 export const upload: Handler = (req, res) => {
@@ -20,7 +20,7 @@ export const upload: Handler = (req, res) => {
   // Se colocal la region del bucket y las credenciales
   // Nunca subir las credecioanes a github o gitlab
   // posiblemete les puede bloquar la cuenta de aws por que expusieron las credenciales en un repositorio publico
-  aws.config.update(configAWS); 
+  aws.config.update(configAWSS3); 
 
   // Se crea una valirable que contiene el servicio o caracteristicas S3
   const s3 = new aws.S3();
@@ -50,7 +50,7 @@ export const download: Handler = (req, res) => {
 
   const pathName = `fotos/${id}.jpg`;
 
-  aws.config.update(configAWS);
+  aws.config.update(configAWSS3);
 
   const s3 = new aws.S3();
 
