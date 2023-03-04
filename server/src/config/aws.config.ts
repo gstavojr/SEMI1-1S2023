@@ -12,3 +12,10 @@ export const configDynamoDB: DynamoConfig = {
   accessKeyId    : process.env.AWS_ACCESS_KEY_ID_DYNAMO as string,
   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY_DYNAMO as string
 }
+
+
+export const configRekognition: AWSConfig = {
+  region         : process.env.AWS_REGION as string,
+  accessKeyId    : process.env.AWS_ACCESS_KEY_ID_REKOGNITION as string,
+  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY_REKOGNITION as string
+};
