@@ -27,3 +27,8 @@ export interface S3ParamsGetFile {
 export interface DynamoConfig extends AWSConfig {
   apiVersion: string;
 }
+
+export interface AttributeCognito {
+  Name : string;
+  Value: string;
+}

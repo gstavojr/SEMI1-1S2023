@@ -4,6 +4,8 @@ import { uploadAndSaveDynamo } from '../controllers/dynamo.controller';
 import { getData, saveData, getDataAzure, saveDataAzure } from '../controllers/rds.controller';
 
 import * as rk from '../controllers/rekognition.controller';
+import { getTranslateText } from '../controllers/translate.controller';
+import { signUp } from '../controllers/cognito.controller';
 
 const router = Router();
 
@@ -26,5 +28,10 @@ router.post('/detectar-famoso', rk.recognizeCelebrities);
 router.post('/detectar-etiqueta', rk.detectLabels);
 router.post('/comparar-fotos', rk.compareFaces);
 
+// Translate
+router.post('/translate', getTranslateText);
+
+// Cognito
+router.post('/signUp', signUp);
 
 export default router;
